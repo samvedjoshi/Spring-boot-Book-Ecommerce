@@ -1,0 +1,38 @@
+services:
+#  db:
+#    container_name: postgres
+#    image: postgres
+#    environment:
+#      POSTGRES_USER: postgres
+#      POSTGRES_PASSWORD: admin
+#      PGDATA: /data/postgres
+#    volumes:
+#      - db:/data/postgres
+#    ports:
+#      - "5332:5432"
+#    networks:
+#      - db
+#    restart: unless-stopped
+
+  pgadmin:
+    container_name: pgadmin4_container
+    image: dpage/pgadmin4
+    restart: unless-stopped
+    environment:
+      PGADMIN_DEFAULT_EMAIL: admin@admin.com
+      PGADMIN_DEFAULT_PASSWORD: root
+      PGADMIN_LISTEN_PORT: 5050
+    ports:
+      - "5050:5050"
+
+
+
+
+
+
+networks:
+  db:
+    driver: bridge
+
+volumes:
+  db:
